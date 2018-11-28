@@ -1,14 +1,34 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Iniciar Sesión
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="registrar()">
+        <ion-icon name="md-person-add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Usuario:</ion-label>
+        <ion-input name="usuario" type="text" [(ngModel)]="v.usuario" clearInput></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Contraseña:</ion-label>
+        <ion-input name="contrasena" type="password" [(ngModel)]="v.contrasena" clearInput></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full (click)="login()">Iniciar sesión</button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Recordar contraseña</ion-label>
+        <ion-checkbox color="dark" checked="{{recordar}}" (ionChange)="onChange($event)"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
