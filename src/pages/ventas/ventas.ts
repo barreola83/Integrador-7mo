@@ -7,6 +7,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController, AlertContro
 import { NegocioProvider } from '../../providers/negocio/negocio';
 import { EditarProductoPage } from '../editar-producto/editar-producto';
 import { Title } from '@angular/platform-browser';
+import { EditarUsuarioPage } from '../editar-usuario/editar-usuario';
 
 
 /**
@@ -318,7 +319,7 @@ export class VentasPage {
         {
           text: 'Editar cliente',
           handler: () =>{
-            this.navCtrl.push(EditarProductoPage,{
+            this.navCtrl.push(EditarUsuarioPage,{
               cliente: c,
               vendedor: this.vendedor
             })

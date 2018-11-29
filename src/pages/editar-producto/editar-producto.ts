@@ -16,8 +16,8 @@ import { NegocioProvider } from '../../providers/negocio/negocio';
 })
 export class EditarProductoPage {
 
-  public vendedor;
-  public producto;
+  public vendedor:any;
+  public producto:any;
   mensaje:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public negocio:NegocioProvider) {
