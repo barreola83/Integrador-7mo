@@ -7,16 +7,73 @@
 <ion-header>
 
   <ion-navbar color="primary" hideBackButton="true">
-    <ion-title>ventas</ion-title>
+    <ion-title>  FATSAILS </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="NuevaVenta()">
-        <ion-icon name="md-add"></ion-icon>
-      </button>
-    </ion-buttons>
+        <button ion-button icon-only (click)="logout()" >
+          <ion-icon name="md-alert"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
   
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="page">
+        <ion-segment-button value="ventas">
+          Ventas
+        </ion-segment-button>
+        <ion-segment-button value="clientes">
+          Clientes
+        </ion-segment-button>
+        <ion-segment-button value="productos">
+          Productos
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
 
+<ion-content padding>
+    <ion-fab right bottom>
+        <button ion-fab color="primary"><ion-icon name="md-add"></ion-icon></button>
+        <ion-fab-list side="left">
+          <button ion-button (click)="NuevoProducto()">Producto</button>
+          <button ion-button (click)="NuevoCliente()">Cliente</button>
+          <button ion-button (click)="NuevaVenta()" >Venta</button>
+        </ion-fab-list>
+      </ion-fab>
+  <div [ngSwitch]="page">
+
+    <ion-list *ngSwitchCase="'ventas'">
+      <ion-item *ngFor="let p of ventas" (click)="seleccionarVenta(p)">
+          <ion-thumbnail item-end>
+              <img src="{{ p.fotoProducto}}">
+            </ion-thumbnail>
+        <h2>Cliente: {{ p.nombre }} {{ p.aPaterno }}</h2>
+        <h2>Producto: {{ p.nombreProducto }}</h2>
+        <h2 *ngIf="p.montoRestante != '0'">Restante: ${{ p.montoRestante }}</h2>
+        <h2 *ngIf="p.montoRestante != '0'">Siguiente: {{ p.siguienteAbono }}</h2>
+        <h2 *ngIf="p.montoRestante == '0'">Producto Pagado</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'clientes'">
+        <ion-item *ngFor="let p of clientes" (click)="seleccionarCliente(p)">
+            <ion-avatar item-start>
+                <img src="{{ p.fotoCliente }}">
+              </ion-avatar>
+          <h2>{{ p.nombre }} {{ p.aPaterno }} {{ p.aMaterno }}</h2>
+
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'productos'">
+        <ion-item *ngFor="let p of productos" (click)="seleccionarProducto(p)">
+            <ion-avatar item-start>
+                <img src="{{ p.fotoProducto }}">
+              </ion-avatar>
+              <h1>{{ p.nombreProducto }}</h1>
+              <h3>{{ p.descripcion }}</h3>
+              <h2>${{ p.precioVenta }}</h2>
+        </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

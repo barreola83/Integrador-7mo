@@ -1,11 +1,11 @@
-import { SeleccionarProductoPage } from './../seleccionar-producto/seleccionar-producto';
 import { SeleccionarUsuarioPage } from './../seleccionar-usuario/seleccionar-usuario';
+import { SeleccionarProductoPage } from './../seleccionar-producto/seleccionar-producto';
+import { NegocioProvider } from './../../providers/negocio/negocio';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
-import { NegocioProvider } from '../../providers/negocio/negocio';
 
 /**
- * Generated class for the NuevaVentaPage page.
+ * Generated class for the EditarVentaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,10 +13,10 @@ import { NegocioProvider } from '../../providers/negocio/negocio';
 
 @IonicPage()
 @Component({
-  selector: 'page-nueva-venta',
-  templateUrl: 'nueva-venta.html',
+  selector: 'page-editar-venta',
+  templateUrl: 'editar-venta.html',
 })
-export class NuevaVentaPage {
+export class EditarVentaPage {
 
   mensaje:any;
   public vendedor;
@@ -44,15 +44,41 @@ export class NuevaVentaPage {
   };
   public fecha:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public negocio: NegocioProvider) {
-    this.tipoPago="Contado";
-    this.vendedor = navParams.get("vendedor");
+  public abonos:any;
+  public v;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public negocio: NegocioProvider, public actionSheetCtrl:ActionSheetController) {
+    this.vendedor=navParams.get("vendedor");
+    this.v=(navParams.get("venta"));
+    this.negocio.mostrarClientesId(this.vendedor.idVendedor, this.v.idCliente).subscribe(
+      (data)=>{
+        this.cliente=(data[0]);
+      }
+    );
+    this.negocio.mostrarProductosId(this.vendedor.idVendedor, this.v.idProducto).subscribe(
+      (data)=>{
+        this.producto=(data[0]);
+      }
+    );
+
+    this.negocio.verAbonos(this.v.idVenta).subscribe(
+      (data)=>{
+        this.abonos=data["records"];
+      },(error)=>{
+        alert("Error al recuperar clientes");
+        console.log(error);
+      }
+    )
+    
+    this.fecha=this.v.fecha;
+    this.tipoPago=this.v.tipoPago;
+    console.log(this.fecha)
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidLoad NuevaVentaPage');
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad EditarVentaPage');
   }
-  
+
   public ionViewWillEnter() {
     if(this.navParams.get('cliente')!=null){
       this.cliente=this.navParams.get('cliente');
@@ -64,6 +90,12 @@ export class NuevaVentaPage {
     console.log(this.cliente);
     console.log(this.producto);
   } 
+
+  setFecha(e:any){
+    console.log(e._value);
+    this.fecha=e._value;
+  }
+
 
   seleccionarCliente(){
     this.navCtrl.push(SeleccionarUsuarioPage,{
@@ -111,7 +143,6 @@ export class NuevaVentaPage {
   }
 
   addDays(f,days,mes){
-    console.log(f)
     var date = new Date(f);
     date.setDate(date.getDate() + days);
     date.setMonth(date.getMonth() + mes);
@@ -125,45 +156,37 @@ export class NuevaVentaPage {
     return this.fecha;
   }
 
-  setFecha(e:any){
-    console.log(e._value);
-    this.fecha=e._value;
-  }
-
   guardarVenta(){
-    console.log(this.fecha);
-    var montoRestante=this.producto.precioVenta;
     var siguientePago=null;
-    if(this.tipoPago=="Contado"){
+    var pagadoMomento=0;
+    this.abonos.forEach(abono => {
+      pagadoMomento+=parseInt(abono.cantidad,10)
+    });
+    var montoRestante=parseInt(this.producto.precioVenta,10)-pagadoMomento
+
+    if(this.tipoPago=="Contado" || this.v.montoRestante==0){
       montoRestante=0;
       siguientePago=null;
     }else if(this.tipoPago=="Semanal"){
-      montoRestante=this.producto.precioVenta;
       siguientePago=this.addDays(this.fecha, 7,0);
-      console.log(siguientePago);
     }else if(this.tipoPago=="Mensual"){
-      montoRestante=this.producto.precioVenta;
       siguientePago=this.addDays(this.fecha, 0,1);
-      console.log(siguientePago);
     }else if(this.tipoPago=="Quincenal"){
-      montoRestante=this.producto.precioVenta;
       siguientePago=this.addDays(this.fecha, 15,0);
-      console.log(siguientePago);
     }
-    
-    
-    this.negocio.registroVenta(this.vendedor.idVendedor,this.cliente.idCliente,this.producto.idProducto,this.fecha,montoRestante,this.tipoPago,siguientePago).subscribe(
+
+    this.negocio.actualizaVenta(this.v.idVenta,this.cliente.idCliente,this.producto.idProducto,this.fecha,montoRestante,this.tipoPago,siguientePago).subscribe(
       (data)=>{
         this.mensaje=data
         if(this.mensaje.status=="ok"){
-          alert("Venta realizada!");
+          alert("Venta actualizada!");
         }else{
-          alert("No se pudo crear la venta");
+          alert("No se pudo actualizar la venta");
         }
       },(error)=>{
-        alert("Error al crear la venta");
+        alert("Error al actualizar la venta");
         console.log(error);
       }
-    )
+    );
   }
 }

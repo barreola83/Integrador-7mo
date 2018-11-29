@@ -1,3 +1,7 @@
+import { WelcomePage } from './../pages/welcome/welcome';
+
+import { EditarUsuarioPage } from './../pages/editar-usuario/editar-usuario';
+import { EditarProductoPage } from './../pages/editar-producto/editar-producto';
 import { SeleccionarProductoPage } from './../pages/seleccionar-producto/seleccionar-producto';
 import { SeleccionarUsuarioPage } from './../pages/seleccionar-usuario/seleccionar-usuario';
 import { VentasPage } from './../pages/ventas/ventas';
@@ -15,6 +19,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { NuevaVentaPage } from '../pages/nueva-venta/nueva-venta';
 import { NuevoUsuarioPage } from '../pages/nuevo-usuario/nuevo-usuario';
 import { NuevoProductoPage } from '../pages/nuevo-producto/nuevo-producto';
+import { EditarVentaPage } from '../pages/editar-venta/editar-venta';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import { NuevoProductoPage } from '../pages/nuevo-producto/nuevo-producto';
     SeleccionarUsuarioPage,
     NuevoUsuarioPage,
     SeleccionarProductoPage,
-    NuevoProductoPage
+    NuevoProductoPage,
+    EditarProductoPage,
+    EditarUsuarioPage,
+    EditarVentaPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,11 @@ import { NuevoProductoPage } from '../pages/nuevo-producto/nuevo-producto';
     SeleccionarUsuarioPage,
     NuevoUsuarioPage,
     SeleccionarProductoPage,
-    NuevoProductoPage
+    NuevoProductoPage,
+    EditarProductoPage,
+    EditarUsuarioPage,
+    EditarVentaPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,

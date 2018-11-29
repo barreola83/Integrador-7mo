@@ -1,14 +1,23 @@
+import { VentasPage } from './../ventas/ventas';
+import { NegocioProvider } from './../../providers/negocio/negocio';
+import { HomePage } from './../home/home';
+import { RegistroPage } from './../registro/registro';
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
-import { NegocioProvider } from '../../providers/negocio/negocio';
-import { RegistroPage } from '../registro/registro';
-import { VentasPage } from '../ventas/ventas';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+/**
+ * Generated class for the WelcomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-welcome',
+  templateUrl: 'welcome.html',
 })
-export class HomePage {
+export class WelcomePage {
 
   mensaje:any;
   public v = {
@@ -18,14 +27,13 @@ export class HomePage {
   public vendedor=[];
   public recordar:any;
 
-  constructor(public navCtrl: NavController, public negocio:NegocioProvider, public modalCtrl:ModalController) {
-    this.recordar=false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public negocio: NegocioProvider) {
     if(localStorage.getItem("usuario")!=null && localStorage.getItem("contrasena")!=null){
       //console.log("Usuario encontrado")
       this.v.usuario=localStorage.getItem("usuario");
       this.v.contrasena=localStorage.getItem("contrasena");
       this.recordar=true;
-      this.login();
+      this.autoLogin();
     }else{
       //console.log("Usuario no encontrado")
       this.v.usuario="";
@@ -34,7 +42,7 @@ export class HomePage {
     }
   }
 
-  login(){
+  autoLogin(){
     this.negocio.login(this.v).subscribe(
       (datos)=>{
         this.vendedor=datos["records"];
@@ -64,14 +72,17 @@ export class HomePage {
       }
     )
   }
-  
-  public registrar(){
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad WelcomePage');
+  }
+
+  login(){
+    this.navCtrl.push(HomePage);
+  }
+
+  registrarse(){
     this.navCtrl.push(RegistroPage);
   }
 
-  onChange(e:any){
-    
-    this.recordar=e.checked;
-    console.log(this.recordar);
-  }
 }

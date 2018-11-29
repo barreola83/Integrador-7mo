@@ -6,18 +6,42 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
     <ion-title>Nueva Venta</ion-title>
+    <ion-buttons end navPop>
+        <button ion-button icon-only (click)="guardarVenta()">
+          <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
     <ion-item>
-        <ion-label>Fecha de venta`</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate">
-        </ion-datetime>
+        <ion-label>Fecha de venta</ion-label>
+        <ion-input name="fecha" type="date" [(ngModel)]=" fecha " (ionChange)=setFecha($event)></ion-input>
       </ion-item>
-  <button ion-button full (click)="seleccionarCliente()">Seleccionar usuario</button>
-  <button ion-button full (click)="seleccionarProducto()">Seleccionar producto</button>
+      <ion-item>
+        <ion-label fixed>Cliente:</ion-label>
+        <ion-input name="cliente" type="[text]" value="{{cliente.nombre}} {{cliente.aPaterno}}" disabled="true"></ion-input>
+        <button ion-button item-right (click)="seleccionarCliente()" >
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Producto:</ion-label>
+        <ion-input name="producto" type="[text]" value="{{producto.nombreProducto}}" disabled="true"></ion-input>
+        <button ion-button item-right (click)="seleccionarProducto()" >
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item>
+          <ion-label fixed>Tipo de pago:</ion-label>
+          <ion-input name="tipoPago" type="[text]" value="{{ tipoPago }}" disabled="true"></ion-input>
+          <button ion-button item-right (click)="opcionesPago()" >
+              <ion-icon name="md-create"></ion-icon>
+          </button>
+        </ion-item>
+    
 </ion-content>
