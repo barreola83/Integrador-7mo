@@ -5,9 +5,7 @@
 # Documentación generada
 - ### Diagrama conceptual.
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/Diagramas de casos de uso-Módulos del software V2.jpg" width="200"/>
-</p> 
+![diagramas de casos de uso-modulos del software v2 sin reportes](https://user-images.githubusercontent.com/26887605/49257928-61eb0a80-f3f9-11e8-94c9-3329a81411bd.jpg) 
 
 
 <br></br>
