@@ -3,7 +3,7 @@ La instalción de la app es muy sencilla, basta con hacer los siguientes pasos:
 - 1 Descargar el APK de este repositorio.
 - 2 Una vez descargado deben de en configuración del sistema permitir instalación de orígenes desconocidos.
 - 3 Una vez hecho eso, se van a la ubicación donde se descargó el APK y preceden a instalarla presionando sobre la aplicación y siguiendo los pasos sencillos del instalador.
-- 4 UNa vez instalada el APK podrás disfrutar de los beneficios de la app.
+- 4 Una vez instalada el APK podrás disfrutar de los beneficios de la app.
 
 NOTA: para instalar el APK el dispositivo móvil deberá contener Android 4.4 en adelante.
 
