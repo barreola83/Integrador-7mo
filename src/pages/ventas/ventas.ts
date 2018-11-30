@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, AlertController, ModalController } from 'ionic-angular';
 import { NegocioProvider } from '../../providers/negocio/negocio';
 import { EditarProductoPage } from '../editar-producto/editar-producto';
-import { Title } from '@angular/platform-browser';
 import { EditarUsuarioPage } from '../editar-usuario/editar-usuario';
 
 
