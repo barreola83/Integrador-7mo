@@ -1,3 +1,11 @@
+# FatSails, control de ventas
+Equipo 2, 7ºD
+Integrantes:
+- Fajardo Borjas Jose Luis
+- García Barajas Fidel
+- Lopez Maldonado Galilea
+- Oseguera de la Cruz Rogelio
+
 # Instalación del software
 La instalción de la app es muy sencilla, basta con hacer los siguientes pasos:
 - 1 Descargar el APK de este repositorio.
