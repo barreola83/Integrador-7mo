@@ -42,53 +42,75 @@ ID | QUIEN | QUE | PARA QUE
 - ### Casos de uso
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/Diagramas de casos de uso-Regsitro.jpg" width="200"/>
-</p> 
+![diagramas de casos de uso-regsitro sin reportes](https://user-images.githubusercontent.com/26887605/49258245-5c41f480-f3fa-11e8-82e4-3ba14b665853.jpg)
+
 
 <br></br>
 - ### Diagrama entidad - relación
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/Diagrama entidad - relacion.png" width="200"/>
-</p> 
+![diagrama entidad relacion](https://user-images.githubusercontent.com/26887605/49258550-6f08f900-f3fb-11e8-98dc-796671050e86.png)
+
+
 
 <br></br>
 - ### Diccionario de datos
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/abonos.JPG" width="200"/>
-</p> 
+![abonos](https://user-images.githubusercontent.com/26887605/49259447-03c12600-f3ff-11e8-83eb-bd2529f3373f.JPG)
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/2Clientes.JPG" width="200"/>
-</p> 
+![2clientes](https://user-images.githubusercontent.com/26887605/49259460-1176ab80-f3ff-11e8-82b2-f420da734b65.JPG)
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/3Productos.JPG" width="200"/>
-</p> 
+![3productos](https://user-images.githubusercontent.com/26887605/49259472-1dfb0400-f3ff-11e8-8a4d-425b1ad55c5c.JPG)
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/4Vendedor.JPG" width="200"/>
-</p> 
+![4vendedor](https://user-images.githubusercontent.com/26887605/49259482-2b17f300-f3ff-11e8-9b32-2c13041944d6.JPG)
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/5Ventas.JPG" width="200"/>
-</p> 
+![5ventas](https://user-images.githubusercontent.com/26887605/49259494-35d28800-f3ff-11e8-80fd-081d9df22237.JPG)
 
 
-<p align="center">
-  <img src="/Integrador-7mo/imgreadmi/relacion.JPG" width="200"/>
-</p> 
+![relacion](https://user-images.githubusercontent.com/26887605/49259550-6f0af800-f3ff-11e8-854d-86865f53200c.JPG)
+
+
 
 
 <br></br>
 - ### Interfaces de usuario
+- ### Login
+![login](https://user-images.githubusercontent.com/26887605/49259649-dd4fba80-f3ff-11e8-943a-2fb3662c2cb4.png)
 
+<br></br>
+- ### Registro
+![registro](https://user-images.githubusercontent.com/26887605/49259671-f9535c00-f3ff-11e8-9a5c-ba277cbf1a67.png)
+
+<br></br> 
+- ### Ventas
+![ventas](https://user-images.githubusercontent.com/26887605/49259690-0bcd9580-f400-11e8-9de5-7a2da0ccde1a.png)
+
+<br></br>
+- ### Ver venta
+![verventa](https://user-images.githubusercontent.com/26887605/49259709-1c7e0b80-f400-11e8-8c12-c33c53ccf337.png)
+
+<br></br>
+- ### Clientes
+![clientes](https://user-images.githubusercontent.com/26887605/49259727-2d2e8180-f400-11e8-8f50-2807a2277c72.png)
+
+<br></br>
+- ### Editar cliente
+![editarcliente](https://user-images.githubusercontent.com/26887605/49259744-4800f600-f400-11e8-9a13-6fd3295779fa.png)
+
+<br></br>
+- ### Productos
+![productos](https://user-images.githubusercontent.com/26887605/49259758-59e29900-f400-11e8-8fb0-139802a69a09.png)
+
+<br></br>
+- ### Editar productos
+![editarproducto](https://user-images.githubusercontent.com/26887605/49259778-68c94b80-f400-11e8-84f4-ccab94b3e801.png)
+
+<br></br>
+- ### Agregar abono
+![agregarabono](https://user-images.githubusercontent.com/26887605/49259797-77176780-f400-11e8-94df-65157783227d.png)
 
