@@ -1,4 +1,4 @@
-# Instalación del software SoftSails
+# Instalación del software
 La instalción de la app es muy sencilla, basta con hacer los siguientes pasos:
 - 1 Descargar el APK de este repositorio.
 - 2 Una vez descargado deben de en configuración del sistema permitir instalación de orígenes desconocidos.
