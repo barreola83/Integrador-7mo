@@ -1,6 +1,5 @@
 # FatSails, control de ventas
-Equipo 2, 7ºD
-Integrantes:
+Equipo 2, 7ºD, Integrantes:
 - Fajardo Borjas Jose Luis
 - García Barajas Fidel
 - Lopez Maldonado Galilea
